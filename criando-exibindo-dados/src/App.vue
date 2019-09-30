@@ -7,6 +7,13 @@
     <div v-if ="tarefas.length">
       Existem {{tarefas.length}} tarefas
     </div>
+
+    <div v-if="tarefas.length > 0">
+      <ul>
+        <li v-for="tarefa in tarefas"> {{tarefa}}</li>
+      </ul>
+    </div>
+    
     <h2>{{subtitulo}}</h2>
   </div>
 </template>
@@ -18,12 +25,9 @@ export default {
     return {
       titulo: 'Listagem de tarefas',
       subtitulo: 'Defina uma descrição',
-      tarefas: []
+      tarefas: ['Melhorar no HTML','Melhorar no JS', 'Voar com o VueJS']
     }
-  },
-  mounted() {
-      setTimeout( () => this.titulo = "Novo título", 2000)
-    }
+  }
 }
 </script>
 
@@ -42,12 +46,11 @@ h1, h2 {
 }
 
 ul {
-  list-style-type: none;
+  list-style-type: disc;
   padding: 0;
 }
 
 li {
-  display: inline-block;
   margin: 0 10px;
 }
 
